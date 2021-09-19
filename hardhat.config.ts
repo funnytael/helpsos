@@ -6,6 +6,7 @@ import "hardhat-deploy";
 import "@symfoni/hardhat-react";
 import "hardhat-typechain";
 import "@typechain/ethers-v5";
+import "./tasks";
 
 require("dotenv").config();
 
@@ -27,7 +28,20 @@ task("accounts", "Prints the list of accounts", async (args, hre) => {
 const config: HardhatUserConfig = {
   react: {
     providerPriority: ["web3modal", "hardhat"],
+    providerOptions: {
+
+      walletconnect: {
+
+        options: {
+
+          infuraId: "95a89c3520c5483d9585205bf74b40d4",
+
+        },
+
+      },
+    },
   },
+  
   namedAccounts: {
     deployer: {
       default: 0,
